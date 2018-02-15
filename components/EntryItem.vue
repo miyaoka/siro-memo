@@ -96,6 +96,8 @@ $date-pad: 6px;
   align-items: center;
   grid-template-rows: auto 1fr;
   grid-gap: 1rem;
+  border-left: 8px solid rgba(0, 0, 0, 0.1);
+  padding-left: 1rem;
 
   .date {
     grid-area: date;
@@ -106,6 +108,8 @@ $date-pad: 6px;
   }
   .body {
     grid-area: body;
+    font-size: 1.1rem;
+    line-height: 1.5;
   }
 }
 p {
