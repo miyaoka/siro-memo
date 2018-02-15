@@ -28,8 +28,7 @@ export default {
     const posts = await client
       .getEntries({
         content_type: env.CTF_BLOG_POST_TYPE_ID,
-        order: '-fields.date',
-        limit: 10
+        order: '-fields.date'
       })
       .catch((err) => ({ items: [] }))
 
