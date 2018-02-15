@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 module.exports = {
+  modules: [['@nuxtjs/google-analytics', { id: 'UA-3536169-20' }]],
   css: ['~/assets/css/base.scss'],
   env: {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
