@@ -75,6 +75,7 @@ $date-pad: 6px;
   border-radius: 50%;
   position: relative;
   font-size: 1.1rem;
+  font-family: 'miyaoka-GenJyuuGothicX-Heavy';
 
   &-m,
   &-d {

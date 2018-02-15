@@ -36,6 +36,12 @@
   font-weight: 200;
 }
 
+@font-face {
+  font-family: 'miyaoka-GenJyuuGothicX-Heavy';
+  src: url(/font/miyaoka-GenJyuuGothicX-Heavy.woff) format('woff');
+  font-display: swap;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', YuGothic, '游ゴシック Medium',
     YuGothicM, Verdana, Meiryo, sans-serif;
@@ -80,7 +86,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
-  font-family: Georgia, '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN',
-    'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
+  font-weight: 700;
+  font-family: 'miyaoka-GenJyuuGothicX-Heavy';
+  color: #3fbbd4;
+  text-shadow: 2px 2px 1px #fff, -2px 2px 1px #fff, 2px -2px 1px #fff, -2px -2px 1px #fff;
 }
