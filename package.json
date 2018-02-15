@@ -1,5 +1,5 @@
 {
-  "name": "contentful",
+  "name": "siro-memo",
   "version": "1.0.0",
   "description": "Nuxt.js project",
   "author": "Masaya Kazama <miyan@t-p.jp>",
@@ -13,7 +13,8 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "nuxt": "^1.0.0"
+    "contentful": "^5.1.1",
+    "dotenv": "^5.0.0",
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

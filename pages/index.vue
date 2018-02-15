@@ -1,64 +1,57 @@
 <template>
   <section class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        contentful
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
+    <div class="articles" ref="articles">
+      <article
+        v-for="({fields},i) in posts"
+        :key="i">
+        <entry-item
+          :title="fields.title"
+          :youtube="fields.youtube"
+          :body="fields.body"
+          :date="fields.date"/>
+      </article>
     </div>
   </section>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import { createClient } from '~/plugins/contentful.js'
+import EntryItem from '~/components/EntryItem.vue'
+
+const client = createClient()
 
 export default {
   components: {
-    AppLogo
+    EntryItem
+  },
+  async asyncData({ env }) {
+    const posts = await client
+      .getEntries({
+        content_type: env.CTF_BLOG_POST_TYPE_ID,
+        order: '-fields.date',
+        limit: 10
+      })
+      .catch((err) => ({ items: [] }))
+
+    return {
+      posts: posts.items
+    }
+  },
+  mounted() {
+    this.loadTwitterWidget()
+  },
+  updated() {
+    this.loadTwitterWidget()
+  },
+  methods: {
+    loadTwitterWidget() {
+      // Reload twitter widget for this episode when already loaded on root
+      if (window['twttr']) window['twttr'].widgets.load()
+    }
   }
 }
 </script>
 
 <style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
