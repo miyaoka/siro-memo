@@ -1,10 +1,10 @@
-# contentful
+# siro-memo
 
-> Nuxt.js project
+> contentful + Nuxt
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ npm install # Or yarn install
 
