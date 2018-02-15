@@ -2,8 +2,8 @@
   <section class="container">
     <div class="articles" ref="articles">
       <article
-        v-for="({fields},i) in posts"
-        :key="i">
+        v-for="{sys, fields} in posts"
+        :key="sys.id">
         <entry-item
           :title="fields.title"
           :youtube="fields.youtube"
