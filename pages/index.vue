@@ -1,8 +1,8 @@
 <template>
   <section class="container">
     <header>
-      <h1>シロ動画メモ</h1>
-      <div>ためになる動画のどこに感銘を受けたかをメモしていきます</div>
+      <h1>シロ動画まいにち感想メモ</h1>
+      <div>ためになる動画のどこに感銘を受けたのか、個人的な見どころをメモしていきます</div>
     </header>
     <div class="articles" ref="articles">
       <article
