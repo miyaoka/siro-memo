@@ -1,5 +1,9 @@
 <template>
   <section class="container">
+    <header>
+      <h1>シロ動画メモ</h1>
+      <div>ためになる動画のどこに感銘を受けたかをメモしていきます</div>
+    </header>
     <div class="articles" ref="articles">
       <article
         v-for="{sys, fields} in posts"
@@ -51,6 +55,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+header {
+  text-align: center;
+}
 </style>
