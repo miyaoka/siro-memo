@@ -65,6 +65,7 @@ $date-pad: 6px;
     border-radius: 1rem;
     width: 320px;
     height: 180px;
+    background: rgba(0, 0, 0, 0.6);
   }
 }
 .date {

@@ -13,20 +13,21 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@miyaoka/vue-youtube-embed-lite": "^1.0.4",
     "@nuxtjs/google-analytics": "^2.0.2",
     "contentful": "^5.1.1",
     "dotenv": "^5.0.0",
     "modern-normalize": "^0.4.0",
-    "nuxt": "^1.0.0",
+    "nuxt": "^1.3.0",
     "vue-markdown": "^2.2.4"
   },
   "devDependencies": {
     "ajv": "^6.1.1",
     "babel-eslint": "^8.2.1",
-    "eslint": "^4.15.0",
+    "eslint": "^4.17.0",
     "eslint-friendly-formatter": "^3.0.0",
-    "eslint-loader": "^1.7.1",
-    "eslint-plugin-vue": "^4.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-vue": "^4.2.2",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6"
   }
