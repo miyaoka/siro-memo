@@ -64,7 +64,7 @@ export default {
   },
   computed: {
     thumb() {
-      return `https://i.ytimg.com/vi_webp/${this.vid}/mqdefault.webp`
+      return `https://i.ytimg.com/vi/${this.vid}/mqdefault.jpg`
     },
     thumbStyle() {
       return {
