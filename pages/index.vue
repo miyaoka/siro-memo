@@ -1,20 +1,15 @@
 <template>
-  <section class="container">
-    <header>
-      <h1>シロ動画感想メモ</h1>
-      <div>ためになる動画のどこに感銘を受けたのか、個人的な見どころをメモしていきます</div>
-    </header>
-    <div class="articles" ref="articles">
-      <article
-        v-for="{sys, fields} in posts"
-        :key="sys.id">
-        <entry-item
-          :title="fields.title"
-          :youtube="fields.youtube"
-          :body="fields.body"
-          :date="fields.date"/>
-      </article>
-    </div>
+  <section class="articles">
+    <article
+      v-for="{sys, fields} in posts"
+      :key="sys.id">
+      <entry-item
+        :id="sys.id"
+        :title="fields.title"
+        :youtube="fields.youtube"
+        :body="fields.body"
+        :date="fields.date"/>
+    </article>
   </section>
 </template>
 
@@ -56,7 +51,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-header {
-  text-align: center;
-}
+
 </style>
