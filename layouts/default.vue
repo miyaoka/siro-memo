@@ -7,15 +7,18 @@
     <span v-if="mounted">
       <script async defer src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     </span>
+    <AppFooter/>
   </div>
 </template>
 
 <script>
 import AppHeader from '~/components/AppHeader.vue'
+import AppFooter from '~/components/AppFooter.vue'
 
 export default {
   components: {
-    AppHeader
+    AppHeader,
+    AppFooter
   },
   data() {
     return {
