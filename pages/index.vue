@@ -1,6 +1,7 @@
 <template>
-  <section class="articles">
+  <section>
     <article
+      class="article"
       v-for="{sys, fields} in posts"
       :key="sys.id">
       <entry-item
@@ -53,5 +54,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~assets/css/mixin/_mediaquery.scss';
 
+.article {
+  &:not(:first-child) {
+    margin-top: 2rem;
+  }
+}
 </style>

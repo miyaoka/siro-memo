@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="app">
     <AppHeader/>
-    <nuxt/>
+    <section class="content">
+      <nuxt/>
+    </section>
     <span v-if="mounted">
       <script async defer src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     </span>
@@ -26,6 +28,19 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '~assets/css/mixin/_mediaquery.scss';
 
+.app {
+  z-index: 2;
+  position: relative;
+}
+.content {
+  max-width: 960px;
+  margin: auto;
+
+  @include mq(tb) {
+    max-width: 560px;
+  }
+}
 </style>

@@ -60,24 +60,46 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~assets/css/mixin/_mediaquery.scss';
 $date-size: 50px;
 $date-pad: 6px;
 
 .entry {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(100px, 100%);
   grid-gap: 1rem;
   padding: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 1rem;
+
+  @include mq(tb) {
+    grid-template-columns: minmax(100px, 100%);
+  }
 
   .youtube {
     border-radius: 1rem;
     width: 320px;
-    height: 180px;
-    background: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    align-self: start;
+
+    @include mq(tb) {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    @include mq() {
+      width: 100%;
+    }
   }
   .content {
-    border-left: 8px solid rgba(0, 0, 0, 0.1);
+    border-left: 8px solid rgba(0, 0, 0, 0.05);
     padding-left: 1rem;
+
+    @include mq(tb) {
+      border: none;
+      padding: 0;
+    }
 
     .body {
       font-size: 1.1rem;
