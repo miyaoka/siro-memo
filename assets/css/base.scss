@@ -120,3 +120,7 @@ body:before {
   left: 0;
   transform: translate3d(0, 0, -1px);
 }
+
+iframe {
+  max-width: 100%;
+}
