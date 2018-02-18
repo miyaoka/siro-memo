@@ -2,22 +2,29 @@
   <div class="entry">
     <embed-youtube
       class="youtube"
-      :url="youtube"
-    />
+      :url="youtube"/>
     <div class="content">
-      <div class="date">
-        <span class="date-m">{{month}}</span>
-        <span class="date-d">{{mday}}</span>
-      </div>
-      <h2 class="title">{{title}}</h2>
+      <header>
+        <nuxt-link
+          class="header-link"
+          :to="{
+            name: 'posts-id',
+            params: { id }
+          }">
+          <div class="date">
+            <span class="date-m">{{month}}</span>
+            <span class="date-d">{{mday}}</span>
+          </div>
+          <h2 class="title">{{title}}</h2>
+        </nuxt-link>
+      </header>
       <vue-markdown
         class="body"
         :source="body"
         :anchorAttributes="{
           target: '_blank',
           rel: 'noopener'
-        }"
-        />
+        }"/>
     </div>
   </div>
 </template>
@@ -32,6 +39,7 @@ export default {
     VueMarkdown
   },
   props: {
+    id: { type: String },
     title: { type: String },
     date: { type: String },
     body: { type: String },
@@ -67,6 +75,22 @@ $date-pad: 6px;
     height: 180px;
     background: rgba(0, 0, 0, 0.6);
   }
+  .content {
+    border-left: 8px solid rgba(0, 0, 0, 0.1);
+    padding-left: 1rem;
+
+    .body {
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+  }
+}
+
+.header-link {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  grid-gap: 1rem;
 }
 .date {
   width: $date-size;
@@ -91,30 +115,8 @@ $date-pad: 6px;
     bottom: $date-pad;
   }
 }
-.content {
-  display: grid;
-  grid-template-areas: 'date title' 'body body';
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  grid-template-rows: auto 1fr;
-  grid-gap: 1rem;
-  border-left: 8px solid rgba(0, 0, 0, 0.1);
-  padding-left: 1rem;
-
-  .date {
-    grid-area: date;
-  }
-  .title {
-    grid-area: title;
-    font-size: 1.8rem;
-  }
-  .body {
-    grid-area: body;
-    font-size: 1.1rem;
-    line-height: 1.5;
-  }
-}
-p {
-  -webkit-mar: 0;
+.title {
+  font-size: 1.8rem;
+  margin: 0;
 }
 </style>

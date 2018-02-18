@@ -1,6 +1,27 @@
 require('dotenv').config()
 
+const contentful = require('contentful')
+const client = contentful.createClient({
+  space: process.env.CTF_SPACE_ID,
+  accessToken: process.env.CTF_CDA_ACCESS_TOKEN
+})
+
 module.exports = {
+  generate: {
+    routes() {
+      return client
+        .getEntries({
+          content_type: process.env.CTF_BLOG_POST_TYPE_ID
+        })
+        .then((posts) =>
+          posts.items.map((post) => ({
+            route: `posts/${post.sys.id}`,
+            payload: post
+          }))
+        )
+        .catch(console.error)
+    }
+  },
   modules: [['@nuxtjs/google-analytics', { id: 'UA-3536169-20' }]],
   css: ['~/assets/css/base.scss'],
   env: {

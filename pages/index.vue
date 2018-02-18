@@ -24,15 +24,17 @@ export default {
     EntryItem
   },
   async asyncData({ env }) {
-    const posts = await client
-      .getEntries({
+    try {
+      const entries = await client.getEntries({
         content_type: env.CTF_BLOG_POST_TYPE_ID,
         order: '-fields.date'
       })
-      .catch((err) => ({ items: [] }))
-
-    return {
-      posts: posts.items
+      return {
+        posts: entries.items
+      }
+    } catch (err) {
+      console.error(err)
+      return { posts: [] }
     }
   },
   mounted() {
