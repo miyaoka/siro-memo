@@ -14,7 +14,7 @@
 
 - Open `Contentful > Space settings > Content preview`
 - Set value `http://localhost:3000/posts/{entry_id}` into `Contentful preview URLs`
-- Opent your content. Click `Open preview` will open your local preview.
+- In editting your content. Click `Open preview` will open your local preview.
 
 ## Build Setup
 
