@@ -26,6 +26,13 @@
           rel: 'noopener'
         }"/>
     </div>
+    <a
+      v-if="isDev"
+      class="edit"
+      :href="`https://app.contentful.com/spaces/${spaceId}/entries/${id}`"
+      target="_blank"
+      rel="noopener"
+      >編集</a>
   </div>
 </template>
 
@@ -44,6 +51,12 @@ export default {
     date: { type: String },
     body: { type: String },
     youtube: { type: String }
+  },
+  data() {
+    return {
+      isDev: process.env.NODE_ENV === 'development',
+      spaceId: process.env.CTF_SPACE_ID
+    }
   },
   computed: {
     d() {
@@ -71,6 +84,7 @@ $date-pad: 6px;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 1rem;
+  position: relative;
 
   @include mq(tb) {
     grid-template-columns: minmax(100px, 100%);
@@ -105,6 +119,15 @@ $date-pad: 6px;
       font-size: 1.1rem;
       line-height: 1.5;
     }
+  }
+  .edit {
+    position: absolute;
+    right: 0;
+    top: -1rem;
+    background: #43b149;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    color: #fff;
   }
 }
 
