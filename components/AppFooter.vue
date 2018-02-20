@@ -40,7 +40,8 @@
 @import '~assets/css/mixin/_mediaquery.scss';
 
 footer {
-  background: rgba(255, 255, 255, 0.9);
+  position: relative;
+  background: rgba(255, 255, 255, 0.7);
 }
 .footer-inner {
   position: absolute;
