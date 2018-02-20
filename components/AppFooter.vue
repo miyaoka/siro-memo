@@ -1,33 +1,35 @@
 <template>
   <footer>
-    <nav class="links">
-      <a
-        href="https://github.com/miyaoka/siro-memo"
-        rel="nofollow noopener"
-        target=“_blank”>
-        <img
-          src="/img/logo/github.png"
-          alt="Powered by GitHub">
-      </a>
+    <div class="footer-inner">
+      <nav class="links">
+        <a
+          href="https://github.com/miyaoka/siro-memo"
+          rel="nofollow noopener"
+          target=“_blank”>
+          <img
+            src="/img/logo/github.png"
+            alt="Powered by GitHub">
+        </a>
 
-      <a
-        href="https://www.contentful.com/"
-        rel="nofollow noopener"
-        target=“_blank”>
-        <img
-          src="/img/logo/contentful.svg"
-          alt="Powered by Contentful"/>
-      </a>
+        <a
+          href="https://www.contentful.com/"
+          rel="nofollow noopener"
+          target=“_blank”>
+          <img
+            src="/img/logo/contentful.svg"
+            alt="Powered by Contentful"/>
+        </a>
 
-      <a
-        href="https://www.netlify.com/"
-        rel="nofollow noopener"
-        target=“_blank”>
-        <img
-          src="/img/logo/netlify.svg"
-          alt="Powered by Netlify">
-      </a>
-    </nav>
+        <a
+          href="https://www.netlify.com/"
+          rel="nofollow noopener"
+          target=“_blank”>
+          <img
+            src="/img/logo/netlify.svg"
+            alt="Powered by Netlify">
+        </a>
+      </nav>
+    </div>
   </footer>
 </template>
 
@@ -38,10 +40,13 @@
 @import '~assets/css/mixin/_mediaquery.scss';
 
 footer {
-  text-align: center;
-  padding: 1rem 1rem 2rem;
-  margin-top: 2rem;
   background: rgba(255, 255, 255, 0.9);
+}
+.footer-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .links {
   display: grid;
