@@ -7,14 +7,16 @@
 ### Contentful env settings
 
 - Copy `.env.sample` to `.env`
-- Fill out `CTF_BLOG_POST_TYPE_ID`, `CTF_SPACE_ID`, `CTF_CDA_ACCESS_TOKEN`, `CTF_CPA_ACCESS_TOKEN`
-  - Get values from your Contentful space. `Contentful > Space settings > API Keys`, `Contentful > Content model`
+- Fill out tokens
+  - `CTF_BLOG_POST_TYPE_ID` from  `Contentful > Content model`
+  - `CTF_SPACE_ID`, `CTF_CDA_ACCESS_TOKEN`, `CTF_CPA_ACCESS_TOKEN` from `Contentful > Space settings > API Keys > Content delivery / preview tokens`
+  - `CTF_MANAGEMENT_TOKEN` from `Contentful > Space settings > API Keys > Content management tokens > Personal Access Tokens`
 
 ### Preview post
 
 - Open `Contentful > Space settings > Content preview`
 - Set value `http://localhost:3000/posts/{entry_id}` into `Contentful preview URLs`
-- In editting your content. Click `Open preview` will open your local preview.
+- In editting your content. Click `Open preview` will open your local server preview.
 
 ## Build Setup
 
