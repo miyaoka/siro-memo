@@ -99,6 +99,7 @@ a {
 .body a {
   color: #3fbbd4;
   text-shadow: 2px 2px 1px #fff, -2px 2px 1px #fff, 2px -2px 1px #fff, -2px -2px 1px #fff;
+  word-break: break-all;
 }
 
 blockquote {
@@ -111,4 +112,8 @@ blockquote {
 
 iframe {
   max-width: 100%;
+}
+
+.twitter-tweet-rendered {
+  display: inline-block !important;
 }
