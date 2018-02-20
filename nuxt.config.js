@@ -29,7 +29,8 @@ module.exports = {
     CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
     CTF_CPA_ACCESS_TOKEN: process.env.CTF_CPA_ACCESS_TOKEN,
     CTF_PERSON_ID: process.env.CTF_PERSON_ID,
-    CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID
+    CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
+    CTF_MANAGEMENT_TOKEN: process.env.CTF_MANAGEMENT_TOKEN
   },
   /*
   ** Headers of the page

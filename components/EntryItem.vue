@@ -18,27 +18,55 @@
           <h2 class="title">{{title}}</h2>
         </nuxt-link>
       </header>
-      <vue-markdown
-        class="body"
-        :source="body"
-        :anchorAttributes="{
-          target: '_blank',
-          rel: 'noopener'
-        }"/>
+      <div class="body">
+        <vue-markdown
+          class="marked"
+          :source="editBody"
+          :anchorAttributes="{
+            target: '_blank',
+            rel: 'noopener'
+          }"/>
+        <div
+          v-if="isDev && isEditing"
+          class="edit"
+          >
+          <textarea
+            v-model="editBody"
+            ref="editbody"/>
+        </div>
+      </div>
+      <div v-if="isDev">
+        <button @click="isEditing = !isEditing">{{isEditing ? '戻る' : '編集'}}</button>
+        <div v-if="isEditing && body !== editBody" @click="isEditing = false">
+          <button @click="discard">discard</button>
+          <button @click="save">save</button>
+          <button @click="publish">publish</button>
+        </div>
+      </div>
     </div>
     <a
       v-if="isDev"
-      class="edit"
+      class="ctf-link"
       :href="`https://app.contentful.com/spaces/${spaceId}/entries/${id}`"
       target="_blank"
       rel="noopener"
-      >編集</a>
+      >Open CTF</a>
   </div>
 </template>
 
 <script>
-import EmbedYoutube from '~/components/EmbedYoutube.vue'
+import * as contentful from 'contentful-management'
 import VueMarkdown from 'vue-markdown'
+import EmbedYoutube from '~/components/EmbedYoutube.vue'
+
+const getEntry = async (id) => {
+  const space = await contentful
+    .createClient({
+      accessToken: process.env.CTF_MANAGEMENT_TOKEN
+    })
+    .getSpace(process.env.CTF_SPACE_ID)
+  return await space.getEntry(id)
+}
 
 export default {
   components: {
@@ -54,9 +82,14 @@ export default {
   },
   data() {
     return {
+      editBody: '',
+      isEditing: false,
       isDev: process.env.NODE_ENV === 'development',
       spaceId: process.env.CTF_SPACE_ID
     }
+  },
+  created() {
+    this.editBody = this.body
   },
   computed: {
     d() {
@@ -67,6 +100,31 @@ export default {
     },
     mday() {
       return this.d.getDate()
+    }
+  },
+  methods: {
+    discard() {
+      this.editBody = this.body
+    },
+    async save() {
+      try {
+        const entry = await getEntry(this.id)
+        entry.fields.body = {
+          ...entry.fields.body,
+          'ja-JP': this.editBody
+        }
+        const updatedEntry = await entry.update()
+      } catch (err) {
+        console.log(err)
+      }
+    },
+    async publish() {
+      try {
+        const entry = await getEntry(this.id)
+        const updatedEntry = await entry.publish()
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 }
@@ -116,11 +174,27 @@ $date-pad: 6px;
     }
 
     .body {
-      font-size: 1.1rem;
-      line-height: 1.5;
+      position: relative;
+      min-height: 3rem;
+      .marked {
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+      .edit {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        textarea {
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
   }
-  .edit {
+  .ctf-link {
     position: absolute;
     right: 0;
     top: -1rem;
