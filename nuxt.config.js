@@ -36,7 +36,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'シロ動画感想メモ',
+    titleTemplate: (titleChunk) => (titleChunk ? `${titleChunk} - ` : '') + 'シロ動画感想メモ',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

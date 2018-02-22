@@ -19,6 +19,14 @@ export default {
   components: {
     EntryItem
   },
+  head: {
+    title: this.post && this.post.fields.title
+  },
+  data() {
+    return {
+      post: {}
+    }
+  },
   async asyncData({ env, params, payload, error }) {
     if (payload) return { post: payload }
     try {
