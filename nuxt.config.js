@@ -40,7 +40,30 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      {
+        hid: 'description',
+        name: 'description',
+        content: `ためになる動画のどこに感銘を受けたのか、個人的な見どころをメモしていきます`
+      },
+      {
+        property: 'og:title',
+        content: 'シロ動画感想メモ',
+        hid: 'ogTitle'
+      },
+      { property: 'og:site_name', content: 'シロ動画感想メモ' },
+      { property: 'og:url', content: 'https://siro-memo.netlify.com', hid: 'ogUrl' },
+      { property: 'og:type', content: 'article' },
+      { property: 'og:locale', content: 'ja_JP' },
+      {
+        property: 'og:description',
+        content: `ためになる動画のどこに感銘を受けたのか、個人的な見どころをメモしていきます`,
+        hid: 'ogDesc'
+      },
+      {
+        property: 'og:image',
+        content: 'https://siro-memo.netlify.com/img/ogp-dolphin.jpg',
+        hid: 'ogImage'
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon/favicon.ico' },
