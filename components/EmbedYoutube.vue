@@ -20,7 +20,9 @@ export default {
   data() {
     return {
       vid: '',
-      params: {}
+      params: {
+        rel: 0
+      }
     }
   },
   watch: {
@@ -34,11 +36,11 @@ export default {
               .map((q) => q.split('='))
               .reduce((prev, curr) => ({ ...prev, [curr[0]]: curr[1] }), {})
           : {}
-        const eParams = {
+        this.params = {
+          ...this.params,
           ...(qParams.t && { start: qParams.t })
         }
         this.vid = qParams.v || base.split('/').pop()
-        this.params = eParams
       }
     }
   }
