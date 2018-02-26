@@ -150,7 +150,7 @@ $date-pad: 6px;
 
   .youtube {
     border-radius: 1rem;
-    width: 320px;
+    width: 400px;
     background-color: rgba(0, 0, 0, 0.6);
     overflow: hidden;
     align-self: start;

@@ -2,6 +2,7 @@
   <youtube-embed-lite
     :vid="vid"
     :params="params"
+    thumb-quality="hq"
   />
 </template>
 
